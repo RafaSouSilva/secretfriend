@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Seu App - Página 8</title>
+</head>
+<body>
+
+  <div class="page" id="pagina8">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo do App" class="img-fluid">
+      <h1>Crie seu Username</h1>
+      <input type="text" id="usernameInput" class="form-control" placeholder="Crie seu username"> <br>
+      <button class="btn btn-primary" onclick="submitUsername()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function submitUsername() {
+      const usernameInput = document.getElementById('usernameInput');
+      const username = usernameInput.value.trim(); // Remover espaços no início e no final
+
+      if (/^[a-zA-Z0-9_]+$/.test(username)) {
+        // Nome de usuário válido, avança para a próxima página
+        window.location.href = 'pagina9.html';
+      } else {
+        alert('Por favor, insira um nome de usuário válido (letras, números e underline são permitidos).');
+      }
+    }
+  </script>
+
+</body>
+</html>

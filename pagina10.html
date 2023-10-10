@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #avatar {
+      max-width: 100%;
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+  </style>
+  <title>Seu App - Página 10</title>
+</head>
+<body>
+
+  <div class="page" id="pagina10">
+    <div class="center">
+      <!-- Adicione este campo para o avatar -->
+      <img id="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS785biEGWYfQ3kCbvts_QRuNPn7IJpvovN4A&usqp=CAU" alt="Avatar do usuário">
+      <input type="file" accept="image/*" onchange="previewProfilePicture(event)">
+      <!-- Fim do campo do avatar -->
+
+      <button class="btn btn-primary" onclick="selectProfilePicture()">Escolha sua foto de perfil</button>
+      <button class="btn btn-secondary" onclick="proceedToNextPage()" style="display:none;">Próxima Página</button>
+    </div>
+  </div>
+
+  <script>
+    function selectProfilePicture() {
+      // Lógica para selecionar uma foto do dispositivo (opcional)
+      document.querySelector('input[type="file"]').click();
+    }
+
+    function previewProfilePicture(event) {
+      // Lógica para exibir a foto selecionada antes de redirecionar
+      const avatar = document.getElementById('avatar');
+      const file = event.target.files[0];
+      const btnChoose = document.querySelector('.btn-primary');
+      const btnNext = document.querySelector('.btn-secondary');
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          avatar.src = e.target.result;
+          btnChoose.innerText = 'Escolher outra foto';
+          btnChoose.onclick = selectProfilePicture; // Altera a ação do botão para selecionar outra foto
+          btnNext.style.display = 'inline'; // Exibe o botão "Próxima"
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function proceedToNextPage() {
+      // Lógica para direcionar o usuário para a próxima página
+      window.location.href = 'pagina11.html';
+    }
+  </script>
+
+</body>
+</html>

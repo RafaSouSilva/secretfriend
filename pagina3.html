@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
+  <title>Seu App - Página 3</title>
+</head>
+<body>
+
+  <div class="page" id="pagina3">
+    <div class="center">
+        <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo" class="img-fluid">
+      <h1>Em que série você está atualmente?</h1>
+      <select id="gradeSelector" class="form-control"> <br>
+        <option value="0">Selecione sua série</option>
+        <option value="7">Sétima Série</option>
+        <option value="8">Oitava Série</option>
+        <option value="9">Nono Ano</option>
+        <option value="10">Primeiro Colegial</option>
+        <option value="11">Segundo Colegial</option>
+        <option value="12">Terceiro Colegial</option>
+      </select> <br>
+      <button class="btn btn-primary" onclick="searchSchool()">Próxima</button> 
+    </div>
+  </div>
+
+  <script>
+    function searchSchool() {
+      const gradeSelector = document.getElementById('gradeSelector');
+      const selectedGrade = gradeSelector.value;
+
+      if (selectedGrade !== '0') {
+        window.location.href = 'pagina4.html';
+      } else {
+        alert('Por favor, selecione uma série antes de prosseguir.');
+      }
+    }
+  </script>
+
+</body>
+</html>

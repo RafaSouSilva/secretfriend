@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Seu App - Página 5</title>
+</head>
+<body>
+
+  <div class="page" id="pagina5">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo do App" class="img-fluid">
+      <h1>Informe seu Número de Telefone</h1>
+      <input type="tel" id="phoneInput" class="form-control" placeholder="(11) 9999-9999" pattern="\(\d{2}\)\d{9}" title="Informe um número no formato (11)980815335" required> <br>
+      <button class="btn btn-primary" onclick="submitPhone()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function submitPhone() {
+      const phoneInput = document.getElementById('phoneInput');
+      const phoneNumber = phoneInput.value.replace(/[^\d]/g, ''); // Remove caracteres não numéricos
+
+      if (phoneNumber.length === 11) {
+        // O número de telefone tem o tamanho correto
+        window.location.href = `pagina6.html?phone=${phoneNumber}`;
+      } else {
+        alert('Por favor, insira um número de telefone válido no formato (11)9999-9999.');
+      }
+    }
+  </script>
+
+</body>
+</html>

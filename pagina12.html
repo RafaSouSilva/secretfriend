@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
+  <title>Seu App</title>
+</head>
+<body>
+
+  <div class="page" id="pagina12">
+    <div class="center">
+      <h1>Parabéns! Você concluiu o processo de cadastro.</h1> <br>
+      <button class="btn btn-primary" onclick="finish()">Iniciar o App!</button>
+    </div>
+  </div>
+
+  <script>
+    function finish() {
+      // Lógica para finalizar o processo (redirecionar para a página principal, por exemplo)
+      window.location.href = 'pagina13.html';
+    }
+  </script>
+
+</body>
+</html>

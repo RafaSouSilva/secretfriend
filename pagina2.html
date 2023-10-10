@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+  <title>Seu App - Página 2</title>
+</head>
+<body>
+
+  <div class="page" id="pagina2">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo" class="img-fluid">
+      <p>O app secret friend precisa de acesso a sua localização  e a sua lista de contatos para encontrar sua escola e encontrar seus colegas. </p>
+      <button class="btn btn-primary" onclick="requestLocation()">Permitir acesso à localização e aos seus contatos.</button>
+    </div>
+  </div>
+
+  <script>
+    function requestLocation() {
+      window.location.href = 'pagina3.html';
+    }
+  </script>
+
+</body>
+</html>
+

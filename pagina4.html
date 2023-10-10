@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .school-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .school-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .school-item img {
+      max-width: 50px;
+      margin-right: 10px;
+    }
+
+    .student-count {
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    /* Adicionando estilo para a escola selecionada */
+    .selected {
+      background-color: #c0c0c0;
+    }
+  </style>
+  <title>Seu App - Página 4</title>
+</head>
+<body>
+
+  <div class="page" id="pagina4">
+    <div class="center">
+      <h1>Buscar Colégio</h1>
+      <input type="text" id="schoolSearch" class="form-control" placeholder="Digite o nome do colégio" onkeydown="checkEnter(event)">
+      
+      <ul class="school-list">
+        <li class="school-item" onclick="selectSchool(this)">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYdVVaLhCTmuU3BPrY7_eVP85_2edc7kQcLg&usqp=CAU" alt="Colégio Avenue Logo">
+          <span>Colégio Avenue</span>
+          <span class="student-count">(50 alunos)</span>
+        </li>
+        <li class="school-item" onclick="selectSchool(this)">
+          <img src="https://cloudfront-us-east-1.images.arcpublishing.com/estadao/F3SV4EKJ3JBEZI4EUFSJEP2MIQ.jpg" alt="Colégio Rio Branco Logo">
+          <span>Colégio Rio Branco</span>
+          <span class="student-count"> (30 alunos)</span>
+        </li>
+        <li class="school-item" onclick="selectSchool(this)">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-pUoCt3L7vLmBAajt5K36f0z4e9sKY9r5LA&usqp=CAU" alt="Colégio Objetivo Morumbi Logo">
+          <span>Objetivo Morumbi</span>
+          <span class="student-count"> (20 alunos)</span>
+        </li>
+        <li class="school-item" onclick="selectSchool(this)">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzT5APUcf1sr2CNkhJHnVNQuMBweJ_6I-ODA&usqp=CAU" alt="Colégio Maple Bear Morumbi Logo">
+          <span> Maple Bear Morumbi</span>
+          <span class="student-count"> (15 alunos)</span>
+        </li>
+      </ul>
+
+      <button class="btn btn-primary" onclick="proceedToNextPage('pagina5.html')">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function proceedToNextPage(nextPage) {
+      const schoolSearch = document.getElementById('schoolSearch').value.trim();
+      const selectedSchool = document.querySelector('.school-item.selected');
+
+      if (schoolSearch.length > 0 || selectedSchool) {
+        window.location.href = nextPage;
+      } else {
+        alert('Por favor, insira um valor no campo de texto ou selecione uma escola antes de prosseguir.');
+      }
+    }
+
+    function checkEnter(event) {
+      if (event.key === 'Enter') {
+        alert("Seu colégio ainda não está no nosso app. Em breve você poderá usar nosso app.");
+      }
+    }
+
+    function selectSchool(element) {
+      // Remover a classe 'selected' de todos os itens da lista
+      const allSchools = document.querySelectorAll('.school-item');
+      allSchools.forEach(school => school.classList.remove('selected'));
+
+      // Adicionar a classe 'selected' ao item clicado
+      element.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>

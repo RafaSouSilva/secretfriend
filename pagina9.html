@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .emoji {
+      font-size: 3em;
+      margin: 0 10px;
+      line-height: 1;
+    }
+
+    .selected {
+      color: blue;
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Seu App - Página 9</title>
+</head>
+<body>
+
+  <div class="page" id="pagina9">
+    <div class="center">
+      <!-- Adicione este espaço para inserir o logo -->
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo do App" class="img-fluid">
+      <!-- Fim do espaço do logo -->
+
+      <h1>Escolha seu sexo:</h1>
+      <div>
+        <!-- Adicione a classe "btn-next" para todos os botões -->
+        <button class="btn btn-primary btn-next" data-sex="Masculino">👦 Masculino</button>
+        <button class="btn btn-primary btn-next" data-sex="Feminino">👧🏿 Feminino</button>
+        <button class="btn btn-primary btn-next" data-sex="Não binário">👧 Não binário</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Adicione a classe "btn-next" para todos os botões
+    const btnsNext = document.querySelectorAll('.btn-next');
+
+    btnsNext.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Obtenha o sexo a partir do atributo data-sex
+        const sex = btn.getAttribute('data-sex');
+        selectSex(sex);
+      });
+    });
+
+    function selectSex(sex) {
+      // Redirecionar para a próxima página
+      window.location.href = 'pagina10.html';
+    }
+  </script>
+
+</body>
+</html>

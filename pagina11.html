@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .contact-item img {
+      max-width: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .contact-item input {
+      margin-left: 10px;
+    }
+  </style>
+  <title>Selecione seus amigos</title>
+</head>
+<body>
+
+  <div class="page" id="pagina11">
+    <div class="center">
+      <h1>Selecione seus amigos</h1>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS785biEGWYfQ3kCbvts_QRuNPn7IJpvovN4A&usqp=CAU" alt="Avatar de Amanda">
+          <span>Amanda Andrade</span>
+          <input type="checkbox" id="contactAmanda" name="contactAmanda">
+        </li>
+        <li class="contact-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS785biEGWYfQ3kCbvts_QRuNPn7IJpvovN4A&usqp=CAU" alt="Avatar de Carlos">
+          <span>Carlos Silva</span>
+          <input type="checkbox" id="contactCarlos" name="contactCarlos">
+        </li>
+        <li class="contact-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS785biEGWYfQ3kCbvts_QRuNPn7IJpvovN4A&usqp=CAU" alt="Avatar de Bruna">
+          <span>Bruna Santos</span>
+          <input type="checkbox" id="contactBruna" name="contactBruna">
+        </li>
+        <li class="contact-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS785biEGWYfQ3kCbvts_QRuNPn7IJpvovN4A&usqp=CAU" alt="Avatar de Daniel">
+          <span>Daniel Oliveira</span>
+          <input type="checkbox" id="contactDaniel" name="contactDaniel">
+        </li>
+      </ul>
+      <button class="btn btn-primary" onclick="submitContacts()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function submitContacts() {
+      // Verificar se pelo menos um checkbox está selecionado
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const selectedContacts = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+      if (selectedContacts) {
+        // Avançar para a próxima página
+        window.location.href = 'pagina12.html';
+      } else {
+        // Exibir mensagem de alerta se nenhum contato estiver selecionado
+        alert('Selecione pelo menos um contato antes de prosseguir.');
+      }
+    }
+  </script>
+
+</body>
+</html>

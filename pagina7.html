@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Seu App - Página 7</title>
+</head>
+<body>
+
+  <div class="page" id="pagina7">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo do App" class="img-fluid">
+      <h1>Informe seu Sobrenome</h1>
+      <input type="text" id="lastNameInput" class="form-control" placeholder="Digite seu sobrenome"> <br>
+      <button class="btn btn-primary" onclick="submitLastName()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function submitLastName() {
+      const lastNameInput = document.getElementById('lastNameInput');
+      const lastName = lastNameInput.value.trim(); // Remover espaços no início e no final
+
+      if (/^[a-zA-Z]+$/.test(lastName)) {
+        // Sobrenome válido, avança para a próxima página
+        window.location.href = 'pagina8.html';
+      } else {
+        alert('Por favor, insira um sobrenome válido (apenas letras, sem espaços ou caracteres especiais).');
+      }
+    }
+  </script>
+
+</body>
+</html>

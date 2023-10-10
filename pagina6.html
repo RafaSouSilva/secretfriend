@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+  <title>Seu App - Página 5</title>
+</head>
+<body>
+
+  <div class="page" id="pagina5">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo do App" class="img-fluid">
+      <h1>Informe seu Primeiro Nome</h1>
+      <input type="text" id="firstNameInput" class="form-control" placeholder="Digite seu primeiro nome"> <br>
+      <button class="btn btn-primary" onclick="submitFirstName()">Próxima</button>
+    </div>
+  </div>
+
+  <script>
+    function submitFirstName() {
+      const firstNameInput = document.getElementById('firstNameInput');
+      const firstName = firstNameInput.value.trim(); // Remover espaços no início e no final
+
+      if (/^[a-zA-Z]+$/.test(firstName)) {
+        // Nome válido, avança para a próxima página
+        window.location.href = 'pagina7.html';
+      } else {
+        alert('Por favor, insira um primeiro nome válido (apenas letras, sem espaços ou caracteres especiais).');
+      }
+    }
+  </script>
+
+</body>
+</html>

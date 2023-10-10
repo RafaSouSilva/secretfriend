@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas do dia.</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        #logo-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 100px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 10vh;
+            padding: 60px; /* Adicionando padding para centralizar completamente */
+        }
+
+        .question-container {
+            margin-bottom: 5vh;
+        }
+
+        .btn-next {
+            margin-top: 5vh;
+        }
+
+        h2, h4, label {
+            font-size: 4vh;
+        }
+
+        #question-counter {
+            font-size: 2vh;
+            margin-top: 2vh;
+        }
+
+        .name-button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-container">
+        <img id="logo" src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Seu Logotipo" height="40px">
+    </div>
+<div class="container">
+    <h2>Perguntas do Dia:</h2>
+    <div id="question-counter"></div>
+
+    <div id="quiz-container" class="question-container">
+        <!-- Pergunta e botões serão inseridos dinamicamente aqui -->
+    </div>
+
+    <button id="next-btn" class="btn btn-primary btn-next">Próxima Pergunta</button>
+    <button id="choose-other-btn" class="btn btn-primary btn-next">Escolher outras pessoas</button>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Definindo as perguntas e opções
+    const questions = [
+        { question: "Quem seria um bom DJ para a festa?🥳", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Poderia ser um famoso baterista.🥁", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Joga muito futebol.⚽", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Adora pescar no final de semana.🎣", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "A pessoa mais bonita da sala?💎", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Essa pessoa tem um sorriso lindo.😁", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Foi um gato em vidas passadas.😻", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Já está convidado para almoçar lá em casa.🥘", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Pessoa mais inteligente da escola.🧑🏻‍🎓", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+        { question: "Eu faria a sua lição de casa.✍️", options: ["Amanda", "Bruna", "Carlos", "Daniel"] },
+    ];
+
+    let currentQuestionIndex = 0;
+
+    const colors = ["#f0f0f0", "#e0e0e0", "#d0d0d0", "#c0c0c0"];
+
+    function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function changeBackgroundColor() {
+        document.body.style.backgroundColor = getRandomColor();
+    }
+
+    function showNextQuestion() {
+        if (currentQuestionIndex < questions.length) {
+            const currentQuestion = questions[currentQuestionIndex];
+
+            // Criação dinâmica de elementos HTML
+            const quizContainer = document.getElementById("quiz-container");
+            quizContainer.innerHTML = `
+                <h4>${currentQuestion.question} </h4>
+                <div>
+                    ${currentQuestion.options.map(option => `
+                        <button class="btn btn-secondary name-button" onclick="selectOption('${option}')">${option}</button>
+                    `).join("")}
+                </div>
+            `;
+
+            // Atualiza o contador de perguntas
+            const questionCounter = document.getElementById("question-counter");
+            questionCounter.textContent = `Pergunta ${currentQuestionIndex + 1} de ${questions.length}`;
+
+            currentQuestionIndex++;
+        } else {
+            // Quando todas as perguntas foram respondidas
+            window.location.href = "assinatura.html";
+        }
+    }
+
+    function chooseOtherPeople() {
+        const otherPeople = ["Ricardo", "Pedro", "André", "Cristiano", "Fernanda", "Isabel", "Mariana", "Isac", "Maria", "Enzo", "Valentina", "Luana", "Larissa"];
+        const currentQuestion = questions[currentQuestionIndex - 1];
+
+        // Embaralha os novos nomes
+        const shuffledPeople = shuffleArray(otherPeople).slice(0, 4);
+
+        // Substitui as opções
+        currentQuestion.options = shuffledPeople;
+
+        // Exibir as novas opções
+        const quizContainer = document.getElementById("quiz-container");
+        quizContainer.innerHTML = `
+            <h4>${currentQuestion.question} </h4>
+            <div>
+                ${currentQuestion.options.map(option => `
+                    <button class="btn btn-secondary name-button" onclick="selectOption('${option}')">${option}</button>
+                `).join("")}
+            </div>
+        `;
+    }
+
+    function selectOption(option) {
+        // Lógica para tratar a seleção da opção (pode ser adicionada aqui)
+        console.log("Opção selecionada:", option);
+        showNextQuestion();
+        changeBackgroundColor();
+    }
+
+    function shuffleArray(array) {
+        // Algoritmo de Fisher-Yates para embaralhar um array
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    document.getElementById("next-btn").addEventListener("click", function () {
+        showNextQuestion();
+        changeBackgroundColor();
+    });
+
+    document.getElementById("choose-other-btn").addEventListener("click", function () {
+        chooseOtherPeople();
+        changeBackgroundColor();
+    });
+
+    // Exibe a primeira pergunta ao carregar a página
+    showNextQuestion();
+</script>
+
+</body>
+</html>

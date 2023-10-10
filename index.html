@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+  <title>Seu App - Página Inicial</title>
+</head>
+<body>
+
+  <div class="page" id="pagina1">
+    <div class="center">
+      <img src="https://secretfriendmusic.com/wp-content/uploads/secret-friend-name-570x172.png" alt="Logo" class="img-fluid">
+      <p>Responda a enquete sobre seus amigos. Saiba quem te admira secretamente.</p>
+      <input type="number" id="agePicker" class="form-control" placeholder="Digite sua idade (13-18)"> <br>
+      <button class="btn btn-primary" onclick="checkAge()">Confirmar</button>
+    </div>
+  </div>
+
+  <script>
+    function checkAge() {
+      const ageInput = document.getElementById('agePicker');
+      const age = ageInput.value;
+
+      if (age !== '' && age >= 13 && age <= 18) {
+        window.location.href = 'pagina2.html';
+      } else {
+        alert('Você precisa inserir uma idade válida entre 13 e 18 anos para usar o app.');
+      }
+    }
+  </script>
+
+</body>
+</html>
